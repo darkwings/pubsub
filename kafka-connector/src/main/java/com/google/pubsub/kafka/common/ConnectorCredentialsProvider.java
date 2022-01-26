@@ -22,12 +22,15 @@ import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 public class ConnectorCredentialsProvider implements CredentialsProvider {
 
   private static final List<String> CPS_SCOPE =
-    Arrays.asList("https://www.googleapis.com/auth/pubsub");
+          singletonList("https://www.googleapis.com/auth/pubsub");
 
   GoogleCredentials credentials;
 
@@ -43,9 +46,9 @@ public class ConnectorCredentialsProvider implements CredentialsProvider {
   @Override
   public Credentials getCredentials() throws IOException {
     if (this.credentials == null) {
-      return GoogleCredentials.getApplicationDefault().createScoped(this.CPS_SCOPE);
+      return GoogleCredentials.getApplicationDefault().createScoped(CPS_SCOPE);
     } else {
-      return this.credentials.createScoped(this.CPS_SCOPE);
+      return this.credentials.createScoped(CPS_SCOPE);
     }
   }
 
