@@ -49,6 +49,7 @@ public class CloudPubSubSinkConnector extends SinkConnector {
   public static final String MAX_REQUEST_TIMEOUT_MS = "maxRequestTimeoutMs";
   public static final String MAX_TOTAL_TIMEOUT_MS = "maxTotalTimeoutMs";
   public static final String MAX_SHUTDOWN_TIMEOUT_MS = "maxShutdownTimeoutMs";
+  public static final String SINK_DLQ = "sink.dlq.topic";
   public static final int DEFAULT_MAX_BUFFER_SIZE = 100;
   public static final long DEFAULT_MAX_BUFFER_BYTES = 9500000L;
   public static final int DEFAULT_DELAY_THRESHOLD_MS = 100;
@@ -252,7 +253,7 @@ public class CloudPubSubSinkConnector extends SinkConnector {
                     Importance.MEDIUM,
                     "What to use to populate the Pub/Sub message ordering key. Possible values are "
                             + "\"none\", \"key\", or \"partition\".")
-            .define(ConnectorUtils.SINK_DLQ,
+            .define(SINK_DLQ,
                     Type.STRING,
                     null,
                     Importance.MEDIUM,

@@ -53,6 +53,7 @@ public class CloudPubSubSourceConnector extends SourceConnector {
   public static final String KAFKA_MESSAGE_TIMESTAMP_CONFIG = "kafka.timestamp.attribute";
   public static final String KAFKA_TOPIC_CONFIG = "kafka.topic";
   public static final String CPS_MAKE_ORDERING_KEY_ATTRIBUTE = "cps.makeOrderingKeyAttribute";
+  public static final String CPS_AS_PLAIN_STRING = "cps.as.plain.string"; // CUSTOM
   public static final String CPS_SUBSCRIPTION_CONFIG = "cps.subscription";
   public static final String CPS_MAX_BATCH_SIZE_CONFIG = "cps.maxBatchSize";
   public static final String CPS_STREAMING_PULL_ENABLED = "cps.streamingPull.enabled";
@@ -292,7 +293,12 @@ public class CloudPubSubSourceConnector extends SourceConnector {
             Type.STRING,
             ConnectorUtils.CPS_DEFAULT_ENDPOINT,
             Importance.LOW,
-            "The Pub/Sub endpoint to use.");
+            "The Pub/Sub endpoint to use.")
+        .define(CPS_AS_PLAIN_STRING,
+                    Type.BOOLEAN,
+                    false,
+                    Importance.LOW,
+                    "Set to true if you want to treat incoming message from pubsub as plain string");
   }
 
   /**

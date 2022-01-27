@@ -135,7 +135,7 @@ public class CloudPubSubSinkTask extends SinkTask {
         cpsProject = validatedProps.get(ConnectorUtils.CPS_PROJECT_CONFIG).toString();
         cpsTopic = validatedProps.get(ConnectorUtils.CPS_TOPIC_CONFIG).toString();
         cpsEndpoint = validatedProps.get(ConnectorUtils.CPS_ENDPOINT).toString();
-        sinkDlq = (String) validatedProps.get(ConnectorUtils.SINK_DLQ);
+        sinkDlq = (String) validatedProps.get(CloudPubSubSinkConnector.SINK_DLQ);
         maxBufferSize = (Integer) validatedProps.get(CloudPubSubSinkConnector.MAX_BUFFER_SIZE_CONFIG);
         maxBufferBytes = (Long) validatedProps.get(CloudPubSubSinkConnector.MAX_BUFFER_BYTES_CONFIG);
         maxOutstandingRequestBytes =

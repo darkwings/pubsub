@@ -27,7 +27,6 @@ public class ConnectorUtils {
   public static final String CPS_SUBSCRIPTION_FORMAT = "projects/%s/subscriptions/%s";
   public static final String CPS_PROJECT_CONFIG = "cps.project";
   public static final String CPS_TOPIC_CONFIG = "cps.topic";
-  public static final String SINK_DLQ = "sink.dlq.topic";
   public static final String CPS_ENDPOINT = "cps.endpoint";
   public static final String CPS_DEFAULT_ENDPOINT = "pubsub.googleapis.com:443";
   public static final String CPS_MESSAGE_KEY_ATTRIBUTE = "key";
